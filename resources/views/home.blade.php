@@ -14,7 +14,11 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <ul>
+                        <li><a href="{{route('amenities.index')}}">Amenities List</a></li>
+                        <li><a href="">Room List</a></li>
+                        <li><a href="{{route('booking.index')}}">Booking List</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
