@@ -16,7 +16,7 @@
 
                     <ul>
                         <li><a href="{{route('amenities.index')}}">Amenities List</a></li>
-                        <li><a href="">Room List</a></li>
+                        <li><a href="{{route('rooms.index')}}">Room List</a></li>
                         <li><a href="{{route('booking.index')}}">Booking List</a></li>
                     </ul>
                 </div>

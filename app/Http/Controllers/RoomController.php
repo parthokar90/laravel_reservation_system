@@ -4,16 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Repository\AmenitiesRepository;
+use App\Repository\RoomRepository;
 
-class AmenitiesController extends Controller
+use App\Models\Amenities;
+
+use App\Models\RoomAmenities;
+
+class RoomController extends Controller
 {
 
-    public $amenities;
+    public $room;
     
-    public function __construct(AmenitiesRepository $amenities)
+    public function __construct(RoomRepository $room)
     {
-        $this->amenities = $amenities;
+        $this->room = $room;
     }
 
     /**
@@ -23,9 +27,9 @@ class AmenitiesController extends Controller
      */
     public function index()
     {
-        $data = $this->amenities->index();
+        $data = $this->room->index();
 
-        return view('admin.amenities.index',compact('data'));
+        return view('admin.room.index',compact('data'));
     }
 
     /**
@@ -35,7 +39,8 @@ class AmenitiesController extends Controller
      */
     public function create()
     {
-        return view('admin.amenities.create');
+        $amenities = Amenities::all();
+        return view('admin.room.create',compact('amenities'));
     }
 
     /**
@@ -46,8 +51,8 @@ class AmenitiesController extends Controller
      */
     public function store(Request $request)
     {
-        $this->amenities->store($request);
-        return redirect()->route('amenities.index')->with('success','Data store Successful');
+        $this->room->store($request);
+        return redirect()->route('rooms.index')->with('success','Data store Successful');
     }
 
     /**
@@ -69,8 +74,10 @@ class AmenitiesController extends Controller
      */
     public function edit($id)
     {
-        $data = $this->amenities->edit($id);
-        return view('admin.amenities.edit',compact('data'));
+        $data = $this->room->edit($id);
+        $amenities = Amenities::all();
+        $selected_amenities = RoomAmenities::where('room_id',$id)->join('amenities','amenities.id','=','room_amenities.amenities_id')->select('amenities')->get();
+        return view('admin.room.edit',compact('data','amenities','selected_amenities'));
     }
 
     /**
@@ -82,8 +89,8 @@ class AmenitiesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->amenities->update($id,$request);
-        return redirect()->route('amenities.index')->with('success','Data Udate Successful');
+        $this->room->update($id,$request);
+        return redirect()->route('rooms.index')->with('success','Data Udate Successful');
     }
 
     /**

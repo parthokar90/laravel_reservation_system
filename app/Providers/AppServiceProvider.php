@@ -7,6 +7,8 @@ use App\Repository\AmenitiesRepository;
 use App\Repository\CreateAmenities;
 use App\Repository\BookingRepository;
 use App\Repository\BookingUpdate;
+use App\Repository\RoomRepository;
+use App\Repository\RoomUpdate;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(AmenitiesRepository::class, CreateAmenities::class);
         $this->app->bind(BookingRepository::class, BookingUpdate::class);
+        $this->app->bind(RoomRepository::class, RoomUpdate::class);
     }
 
     /**

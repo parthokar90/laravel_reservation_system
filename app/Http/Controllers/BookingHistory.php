@@ -80,7 +80,8 @@ class BookingHistory extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->booking->update($id,$request);
+        return redirect()->route('booking.index')->with('success','Booking update Successful');
     }
 
     /**

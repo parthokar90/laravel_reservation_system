@@ -17,7 +17,7 @@ class CreateRoomsTable extends Migration
             $table->id();
             $table->string('name',50);
             $table->text('description');
-            $table->string('photo',255);
+            $table->string('photo',255)->nullable();
             $table->string('size',50);
             $table->string('occupancy',50);
             $table->decimal('price',18,2);

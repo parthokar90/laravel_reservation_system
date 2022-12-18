@@ -15,8 +15,8 @@ class CreateRoomAmenitiesTable extends Migration
     {
         Schema::create('room_amenities', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('room_id');
-            $table->UnsignedBigInteger('amenities_id');
+            $table->unsignedBigInteger('room_id')->nullable();
+            $table->UnsignedBigInteger('amenities_id')->nullable();
             $table->timestamps();
         });
     }

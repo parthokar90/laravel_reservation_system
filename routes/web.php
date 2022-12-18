@@ -31,3 +31,12 @@ Route::resource('/amenities',App\Http\Controllers\AmenitiesController::class)->m
 */
 
 Route::resource('/booking',App\Http\Controllers\BookingHistory::class)->middleware('auth');
+
+
+/*
+|--------------------------------------------------------------------------
+|admin room  Web Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::resource('/rooms',App\Http\Controllers\RoomController::class)->middleware('auth');
