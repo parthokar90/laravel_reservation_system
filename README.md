@@ -10,3 +10,5 @@
 
 6: php artisan serve 
 
+7: use two seperate brouser to run project seperately
+
