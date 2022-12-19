@@ -38,6 +38,6 @@ class BookingUpdate implements BookingRepository{
     }
 
     public function delete($id){
-
+      dd($id);
     }
 }

@@ -27,7 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 |--------------------------------------------------------------------------
 */
 Route::post('/login',[AuthController::class,'login']);
-Route::get('/dashboard',[DashboardController::class,'dashboard'])->middleware('auth:sanctum');
+Route::get('/access',[DashboardController::class,'dashboard'])->middleware('auth:sanctum');
 
 
 /*
@@ -36,4 +36,13 @@ Route::get('/dashboard',[DashboardController::class,'dashboard'])->middleware('a
 |--------------------------------------------------------------------------
 */
 
-Route::get('/room',[DashboardController::class,'roomList']);
+Route::get('/rooms',[DashboardController::class,'roomList']);
+
+
+/*
+|--------------------------------------------------------------------------
+| Room book route
+|--------------------------------------------------------------------------
+*/
+
+Route::post('/book',[DashboardController::class,'roomBook'])->middleware('auth:sanctum');

@@ -37,6 +37,15 @@
                                     <td>{{ $item->status==1 ? 'Active' : 'Inactive' }}</td>
                                     <td>
                                         <a href="{{ route('rooms.edit',$item->id) }}">Edit</a> 
+
+                                        <form action="{{route('rooms.destroy',[$item->id])}}" method="POST">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button class="btn btn-danger" type="submit">Delete</button>               
+                                           </form>
+
+
+
                                     </td>
                                 </tr>
                                 @empty

@@ -49,7 +49,7 @@
 
                     <div class="form-group">
                         <label for="type">Select Amenities</label>
-                        <select  class="form-control" name="amenities_id[]" multiple>
+                        <select required class="form-control" name="amenities_id[]" multiple>
                             @foreach($amenities as $am)
                               <option value="{{$am->id}}">{{$am->amenities}}</option>
                             @endforeach 
