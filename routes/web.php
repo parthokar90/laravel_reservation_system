@@ -31,6 +31,7 @@ Route::resource('/amenities',App\Http\Controllers\AmenitiesController::class)->m
 */
 
 Route::resource('/booking',App\Http\Controllers\BookingHistory::class)->middleware('auth');
+Route::get('/approve/booking/{id}/{status}',[App\Http\Controllers\BookingHistory::class,'approveBook'])->name('book_approve')->middleware('auth');
 
 
 /*

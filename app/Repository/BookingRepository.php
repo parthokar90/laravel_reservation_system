@@ -6,14 +6,8 @@ interface BookingRepository
 {
     public function index();
 
-    public function create();
-
-    public function edit($id);
-
-    public function store($collection = []);
-
-    public function update( $id = null, $collection = [] );
-
     public function delete($id);
+
+    public function approveBook($id,$status);
 
 }
