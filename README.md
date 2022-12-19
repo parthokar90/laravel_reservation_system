@@ -8,3 +8,5 @@
 
 5: configure database inside .env file
 
+6: php artisan serve 
+
